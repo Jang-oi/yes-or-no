@@ -1,13 +1,20 @@
 import {Route, Routes} from 'react-router-dom';
 
 import Main from './pages/Main';
+import Winning from "./pages/lotto/Winning";
 import NotFound from './pages/NotFound';
+
 import Sidebar from './components/menu/Sidebar';
 import Header from './components/menu/Header';
 
 import {CssVarsProvider} from '@mui/joy/styles';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
+import Search from "./pages/lotto/Search";
+import Stock from "./pages/Stock";
+import Recommended from "./pages/lunch/Recommended";
+import Setting from "./pages/lunch/Setting";
+
 
 export default function App() {
     return (
@@ -26,6 +33,11 @@ export default function App() {
                     <Box sx={{margin: '30px'}}>
                         <Routes>
                             <Route path='/' element={<Main/>}/>
+                            <Route path='/lotto/winning' element={<Winning/>}/>
+                            <Route path='/lotto/search' element={<Search/>}/>
+                            <Route path='/stock' element={<Stock/>}/>
+                            <Route path='/lunch/recommended' element={<Recommended/>}/>
+                            <Route path='/lunch/setting' element={<Setting/>}/>
                             <Route path='*' element={<NotFound/>}/>
                         </Routes>
                     </Box>
