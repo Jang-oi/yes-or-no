@@ -20,6 +20,7 @@ import {Divider} from "@mui/joy";
 import {MenuTypes} from "../../types/menuTypes";
 import {menuData} from "../../utils/commonUits";
 import LifeQuotes from "./LifeQuotes";
+import {useState} from 'react';
 
 function Toggler({defaultExpanded = false, renderToggle, children,}: {
     defaultExpanded?: boolean;
@@ -52,6 +53,12 @@ function Toggler({defaultExpanded = false, renderToggle, children,}: {
 export default function Sidebar() {
 
     const navigate = useNavigate();
+    const [menuSelect, setMenuSelect] = useState<string>('');
+
+    const menuButtonHandler = (menuUrl: string, menuName : string) => {
+        setMenuSelect(menuName);
+        navigate(`${menuUrl}`);
+    }
 
     const getMenuIcon = (menu: string) => {
         switch (menu) {
@@ -62,7 +69,7 @@ export default function Sidebar() {
             case '공모주' :
                 return <AccountBalanceIcon/>
             case '점심' :
-               return <RestaurantIcon/>
+                return <RestaurantIcon/>
             default :
                 return <></>
         }
@@ -77,7 +84,10 @@ export default function Sidebar() {
     const renderMenu = (menuItem: MenuTypes, menuIndex: number) => {
         if (!menuItem.childMenu) {
             return (
-                <ListItemButton onClick={() => {navigate(`${menuItem.url}`)}}>
+                <ListItemButton selected={menuSelect === menuItem.menu} onClick={() => {
+                    menuButtonHandler(menuItem?.url || '', menuItem.menu);
+                }}>
+                    {/*<ListItemButton onClick={menuButtonHandler}>*/}
                     {getMenuIcon(menuItem.menu)}
                     <ListItemContent>
                         <Typography level="title-lg">{menuItem.menu}</Typography>
@@ -100,9 +110,10 @@ export default function Sidebar() {
                     <List key={menuIndex} sx={{gap: 0.5}}>
                         {menuItem.childMenu.map((childItem, childIndex) => (
                             <ListItem key={childIndex}>
-                                <ListItemButton onClick={() => {
-                                    navigate(`${menuItem.childUrl && menuItem.childUrl[childIndex]}`)
-                                }}>{childItem}</ListItemButton>
+                                <ListItemButton selected={menuSelect === childItem}
+                                    onClick={() => {
+                                        if (menuItem.childUrl) menuButtonHandler(menuItem.childUrl[childIndex], childItem);
+                                    }}>{childItem}</ListItemButton>
                             </ListItem>
                         ))}
                     </List>
@@ -172,13 +183,11 @@ export default function Sidebar() {
                     },
                 }}
             >
-                <List
-                    size="sm"
-                    sx={{
-                        gap: 1,
-                        '--List-nestedInsetStart': '30px',
-                        '--ListItem-radius': (theme) => theme.vars.radius.sm,
-                    }}
+                <List size="sm" sx={{
+                    gap: 1,
+                    '--List-nestedInsetStart': '30px',
+                    '--ListItem-radius': (theme) => theme.vars.radius.sm
+                }}
                 >
                     {menuData && menuData.map((menuItem, menuIndex) => (
                         <ListItem key={menuIndex} nested={!!menuItem.childMenu}>

@@ -10,16 +10,11 @@ import ColorSchemeToggle from './ColorSchmeToggle'; // 다크모드 버튼 컴�
 
 export default function HeadSub() {
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Breadcrumbs
-        size="sm"
-        aria-label="breadcrumbs"
-        separator={<ChevronRightRoundedIcon />}
-        sx={{ pl: 0 }}
-      >
+      <Breadcrumbs size="lg" separator={<ChevronRightRoundedIcon />} sx={{ pl: 0 }}>
         <Link underline="none" color="neutral" href="#some-link" aria-label="Home">
           <HomeRoundedIcon />
         </Link>
@@ -28,12 +23,12 @@ export default function HeadSub() {
           color="neutral"
           component={RouterLink}
           to={'/'}
-          fontSize={12}
+          fontSize={18}
           fontWeight={500}
         >
           Dashboard
         </Link>
-        <Typography color="primary" fontWeight={500} fontSize={12}>
+        <Typography color="primary" fontWeight={500} fontSize={18}>
           Orders
         </Typography>
       </Breadcrumbs>
