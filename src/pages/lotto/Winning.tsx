@@ -1,33 +1,20 @@
-import {Avatar, Button, Card, CardContent, Typography} from "@mui/joy";
+import {Avatar, Box, Button, Card, CardContent, Chip, Grid, Typography} from "@mui/joy";
+import LottoCard from "../../components/lotto/LottoCard";
 
 const Winning = () => {
+
+    const abc = [{발행일 : '2023년 12월 10일',추첨일 : '2023년 12월 16일', 지급기한 : '2024년 12월 24일', number : [1,2,3,4,5,6]}]
+    
     return (
-        <Card sx={{ width: 320 }}>
-            <div>
-                <Typography level="title-lg">제 1097 회 </Typography>
-                <Typography level="body-sm">April 24 to May 02, 2021</Typography>
-            </div>
-            <CardContent orientation="horizontal">
-                <div>
-                    <Typography level="body-xs">Total price:</Typography>
-                    <Typography fontSize="lg" fontWeight="lg">
-                        $2,900
-                    </Typography>
-                </div>
-                <Button
-                    variant="solid"
-                    size="md"
-                    color="primary"
-                    aria-label="Explore Bahamas Islands"
-                    sx={{ ml: 'auto', alignSelf: 'center', fontWeight: 600 }}
-                >
-                    Explore
-                </Button>
-            </CardContent>
-        </Card>
+        <Grid container>
+            {abc.map(lottoItem => (
+                <Grid xs={12} sm={12} md={12} lg={12}>
+                    <LottoCard LottoItem={lottoItem}/>
+                </Grid>
+            ))}
+        </Grid>
     );
 };
-
 
 
 export default Winning;

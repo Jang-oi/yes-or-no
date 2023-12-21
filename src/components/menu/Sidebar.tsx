@@ -21,6 +21,7 @@ import {MenuTypes} from "../../types/menuTypes";
 import {menuData} from "../../utils/commonUits";
 import LifeQuotes from "./LifeQuotes";
 import {useState} from 'react';
+import ColorSchemeToggle from "./ColorSchmeToggle";
 
 function Toggler({defaultExpanded = false, renderToggle, children,}: {
     defaultExpanded?: boolean;
@@ -142,6 +143,8 @@ export default function Sidebar() {
                 borderColor: 'divider',
             }}
         >
+            <ColorSchemeToggle sx={{ marginLeft: 'auto' }} />
+            <Divider/>
             <GlobalStyles
                 styles={(theme) => ({
                     ':root': {

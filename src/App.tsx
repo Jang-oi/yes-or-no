@@ -14,8 +14,7 @@ import Search from "./pages/lotto/Search";
 import Stock from "./pages/Stock";
 import Recommended from "./pages/lunch/Recommended";
 import Setting from "./pages/lunch/Setting";
-import HeadSub from "./components/menu/HeadSub";
-
+import ColorSchemeToggle from "./components/menu/ColorSchmeToggle";
 
 export default function App() {
     return (
@@ -31,7 +30,6 @@ export default function App() {
                     flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, height: '100dvh', gap: 1,
                 }}
                 >
-                    <HeadSub/>
                     <Box sx={{margin: '30px'}}>
                         <Routes>
                             <Route path='/' element={<Main/>}/>
