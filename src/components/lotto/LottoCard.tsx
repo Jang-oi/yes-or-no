@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Card, CardContent, Stack, Typography} from "@mui/joy";
+import {Box, Card, Stack, Typography} from "@mui/joy";
 import NumberCircle from "./NumberCircle";
 
 interface LottoItem {
@@ -28,8 +28,8 @@ const LottoCard = ({LottoItem}: LottoCardProps) => {
                 <Typography level="title-md">지급기한 : {지급기한}</Typography>
             </Box>
             <Stack direction="row" spacing={2} justifyContent="center" alignItems="center">
-                {number.map(lottoNumber => (
-                    <NumberCircle number={lottoNumber}/>
+                {number.map((lottoNumber, numberIndex) => (
+                    <NumberCircle number={lottoNumber} key={numberIndex}/>
                 ))}
             </Stack>
         </Card>

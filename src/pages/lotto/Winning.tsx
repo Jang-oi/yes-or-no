@@ -1,4 +1,4 @@
-import {Avatar, Box, Button, Card, CardContent, Chip, Grid, Typography} from "@mui/joy";
+import {Grid} from "@mui/joy";
 import LottoCard from "../../components/lotto/LottoCard";
 
 const Winning = () => {
@@ -7,8 +7,8 @@ const Winning = () => {
     
     return (
         <Grid container>
-            {abc.map(lottoItem => (
-                <Grid xs={12} sm={12} md={12} lg={12}>
+            {abc.map((lottoItem, lottoIndex) => (
+                <Grid xs={12} sm={12} md={12} lg={12} key={lottoIndex}>
                     <LottoCard LottoItem={lottoItem}/>
                 </Grid>
             ))}
