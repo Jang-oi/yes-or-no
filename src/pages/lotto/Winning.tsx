@@ -3,7 +3,7 @@ import LottoCard from "../../components/lotto/LottoCard";
 
 const Winning = () => {
 
-    const abc = [{발행일 : '2023년 12월 10일',추첨일 : '2023년 12월 16일', 지급기한 : '2024년 12월 24일', number : [1,2,3,4,5,6]}]
+    const abc = [{발행일 : '2023년 12월 10일',추첨일 : '2023년 12월 16일', 지급기한 : '2024년 12월 24일', number : [12,16,21,24,41,43]}]
     
     return (
         <Grid container>
