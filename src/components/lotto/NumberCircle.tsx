@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar, Chip, Typography} from "@mui/joy";
+import {Avatar} from "@mui/joy";
 
 interface NumberCircleProps {
     number: number
@@ -24,8 +24,7 @@ const NumberCircle = ({number}: NumberCircleProps) => {
         return color
     }
 
-    // return <Chip size='lg' sx={{margin: '5px', borderRadius: '50%', backgroundColor: getNumberColor(number), color: 'white'}}>{number}</Chip>
-    return <Avatar sx={{ bgcolor: getNumberColor(number)}}>{number}</Avatar>
+    return <Avatar sx={{bgcolor: getNumberColor(number)}}>{number}</Avatar>
 };
 
 export default NumberCircle;

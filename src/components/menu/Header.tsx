@@ -21,7 +21,7 @@ export default function Header() {
                 p: 2,
                 gap: 1,
                 borderBottom: '1px solid',
-                borderColor: 'background.level1',
+                borderColor: 'background.level2',
                 boxShadow: 'sm',
             }}
         >
@@ -37,12 +37,13 @@ export default function Header() {
             />
             <IconButton
                 onClick={() => toggleSidebar()}
-                variant="outlined"
-                color="neutral"
+                variant={"plain"}
+                color={"neutral"}
                 size="sm"
             >
                 <MenuIcon/>
             </IconButton>
+            로고
         </Sheet>
     );
 }

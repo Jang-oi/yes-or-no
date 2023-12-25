@@ -19,7 +19,7 @@ export function formatDate(date: Date) {
 
 export const menuData: MenuTypes[] = [
     {menu: '홈', url: '/'},
-    {menu: '로또', childMenu: ['당첨번호', '당첨내역조회'], childUrl: ['/lotto/winning', '/lotto/search']},
+    {menu: '로또', childMenu: ['이번 주 추첨번호', '당첨내역조회'], childUrl: ['/lotto/winning', '/lotto/search']},
     {menu: '공모주', url: '/stock'},
     {menu: '점심', childMenu: ['추천식당', '설정'], childUrl: ['/lunch/recommended', '/lunch/setting']}
 ];

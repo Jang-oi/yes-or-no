@@ -141,6 +141,7 @@ export default function Sidebar() {
                 gap: 2,
                 borderRight: '1px solid',
                 borderColor: 'divider',
+                backgroundColor : ''
             }}
         >
             <ColorSchemeToggle sx={{ marginLeft: 'auto' }} />

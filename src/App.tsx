@@ -14,7 +14,6 @@ import Search from "./pages/lotto/Search";
 import Stock from "./pages/Stock";
 import Recommended from "./pages/lunch/Recommended";
 import Setting from "./pages/lunch/Setting";
-import ColorSchemeToggle from "./components/menu/ColorSchmeToggle";
 
 export default function App() {
     return (
