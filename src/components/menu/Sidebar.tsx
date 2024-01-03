@@ -64,13 +64,13 @@ export default function Sidebar() {
     const getMenuIcon = (menu: string) => {
         switch (menu) {
             case '홈' :
-                return <HomeRoundedIcon/>
+                return <HomeRoundedIcon sx={{color: '#FFFFFF'}}/>
             case '로또' :
-                return <CurrencyExchangeIcon/>
+                return <CurrencyExchangeIcon sx={{color: '#FFFFFF'}}/>
             case '공모주' :
-                return <AccountBalanceIcon/>
+                return <AccountBalanceIcon sx={{color: '#FFFFFF'}}/>
             case '점심' :
-                return <RestaurantIcon/>
+                return <RestaurantIcon sx={{color: '#FFFFFF'}}/>
             default :
                 return <></>
         }
@@ -85,13 +85,13 @@ export default function Sidebar() {
     const renderMenu = (menuItem: MenuTypes, menuIndex: number) => {
         if (!menuItem.childMenu) {
             return (
-                <ListItemButton selected={menuSelect === menuItem.menu} onClick={() => {
+                <ListItemButton onClick={() => {
                     menuButtonHandler(menuItem?.url || '', menuItem.menu);
                 }}>
                     {/*<ListItemButton onClick={menuButtonHandler}>*/}
                     {getMenuIcon(menuItem.menu)}
                     <ListItemContent>
-                        <Typography level="title-lg">{menuItem.menu}</Typography>
+                        <Typography level="title-lg" sx={{color: `${menuSelect === menuItem.menu ? 'white' : '#819BCC'}`}}>{menuItem.menu}</Typography>
                     </ListItemContent>
                 </ListItemButton>
             )
@@ -102,7 +102,7 @@ export default function Sidebar() {
                         <ListItemButton onClick={() => setOpen(!open)}>
                             {getMenuIcon(menuItem.menu)}
                             <ListItemContent>
-                                <Typography level="title-lg">{menuItem.menu}</Typography>
+                                <Typography level="title-lg" sx={{color: `${menuSelect === menuItem.menu ? 'white' : '#819BCC'}`}}>{menuItem.menu}</Typography>
                             </ListItemContent>
                             <KeyboardArrowDownIcon sx={{transform: open ? 'rotate(180deg)' : 'none'}}/>
                         </ListItemButton>
@@ -111,7 +111,7 @@ export default function Sidebar() {
                     <List key={menuIndex} sx={{gap: 0.5}}>
                         {menuItem.childMenu.map((childItem, childIndex) => (
                             <ListItem key={childIndex}>
-                                <ListItemButton selected={menuSelect === childItem}
+                                <ListItemButton sx={{color: `${menuSelect === childItem ? 'white' : '#819BCC'}`}}
                                     onClick={() => {
                                         if (menuItem.childUrl) menuButtonHandler(menuItem.childUrl[childIndex], childItem);
                                     }}>{childItem}</ListItemButton>
@@ -141,11 +141,10 @@ export default function Sidebar() {
                 gap: 2,
                 borderRight: '1px solid',
                 borderColor: 'divider',
-                backgroundColor : ''
+                backgroundColor : '#185EA5'
             }}
         >
-            <ColorSchemeToggle sx={{ marginLeft: 'auto' }} />
-            <Divider/>
+            {/*<ColorSchemeToggle sx={{ marginLeft: 'auto' }} />*/}
             <GlobalStyles
                 styles={(theme) => ({
                     ':root': {
